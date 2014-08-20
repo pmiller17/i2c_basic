@@ -33,17 +33,19 @@ int main(void)
 
 
 		messageBuf[0] = (SLAVE_ADDR<<TWI_ADR_BITS) | (FALSE<<TWI_READ_BIT);
-		messageBuf[1] = myCounter;
+		messageBuf[1] = 22;
+		messageBuf[2] = 33;
+		messageBuf[3] = 44;
 		if(temp == 0) {
 		
-			temp = USI_TWI_Start_Transceiver_With_Data( messageBuf, 3);
+			temp = USI_TWI_Start_Transceiver_With_Data( messageBuf, 4);
 		}
 		
 		else {
 			messageBuf[2] = 255;
-			temp = USI_TWI_Start_Transceiver_With_Data( messageBuf, 3);
+			temp = USI_TWI_Start_Transceiver_With_Data( messageBuf, 4);
 		}
-		myCounter++;
+		//myCounter++;
 		if(myCounter >= 100) {myCounter = 1;}
 		_delay_ms( 50 );
 		//TODO:: Please write your application code 
