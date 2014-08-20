@@ -93,7 +93,7 @@ void main( void )
       {
         // Send a Generall Call
         case (1<<PD0):      
-          messageBuf[0] = TWI_GEN_CALL;     // The first byte must always consit of General Call code or the TWI slave address.
+          messageBuf[0] = TWI_GEN_CALL;     // The first byte must always consist of General Call code or the TWI slave address.
           messageBuf[1] = 0xAA;             // The command or data to be included in the general call.
           temp = USI_TWI_Start_Transceiver_With_Data( messageBuf, 2 );
           break;
